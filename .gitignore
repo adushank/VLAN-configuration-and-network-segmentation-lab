@@ -1,0 +1,18 @@
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# VS Code workspace and settings
+.vscode/
+*.code-workspace
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Packet Tracer autosave and temporary files
+*.autosave

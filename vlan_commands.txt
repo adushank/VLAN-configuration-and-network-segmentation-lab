@@ -1,0 +1,57 @@
+VLAN Configuration & Network Segmentation Lab
+==============================================
+
+Executable Cisco IOS command sequence
+-------------------------------------
+Copy and enter only the commands in this section in the switch CLI.
+
+enable
+configure terminal
+
+vlan 10
+name Sales
+exit
+
+vlan 20
+name HR
+exit
+
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10
+exit
+
+interface fastEthernet 0/2
+switchport mode access
+switchport access vlan 10
+exit
+
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 20
+exit
+
+interface fastEthernet 0/4
+switchport mode access
+switchport access vlan 20
+exit
+
+end
+show vlan brief
+
+Command explanations
+--------------------
+- enable: enters privileged EXEC mode.
+- configure terminal: enters global configuration mode.
+- vlan 10 / vlan 20: creates or selects the VLAN with the specified ID.
+- name Sales / name HR: assigns a descriptive VLAN name.
+- interface fastEthernet 0/x: selects the switch interface to configure.
+- switchport mode access: configures that interface as a Layer 2 access port.
+- switchport access vlan 10 / vlan 20: assigns the access port to the specified VLAN.
+- exit: leaves the current configuration sub-mode.
+- end: returns to privileged EXEC mode.
+- show vlan brief: displays VLAN names, status, and associated access ports.
+
+Expected port membership after successful configuration:
+- VLAN 10 (Sales): Fa0/1 and Fa0/2
+- VLAN 20 (HR): Fa0/3 and Fa0/4
